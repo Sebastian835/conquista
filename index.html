@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conquista General Contractor LLC - Where Every Project is a Conquest</title>
+    <link rel="icon" href="./img/logo.png">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --primary-blue: #1B3A5F;
+            --gold: #FFB81C;
+            --dark-blue: #0D1B2A;
+            --light-gray: #E8E8E8;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-blue);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .navbar-logo {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            margin-right: 0.5rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--primary-blue);
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white) !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .navbar-brand span {
+            color: var(--gold);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-primary-custom:hover::before {
+            left: 0;
+        }
+
+        .btn-primary-custom:hover {
+            color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+
+        .hero-geometric {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-geometric::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: var(--primary-red);
+            opacity: 0.1;
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+        }
+
+        .hero-geometric::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 400px solid transparent;
+            border-right: 400px solid transparent;
+            border-bottom: 600px solid rgba(255, 184, 28, 0.1);
+            bottom: -100px;
+            left: -200px;
+            transform: rotate(-25deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+        }
+
+        .hero-feature-text {
+            text-align: left;
+        }
+
+        .hero-feature-number {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .hero-feature-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.5rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .values-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            height: 100%;
+            position: relative;
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .values-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.4s ease;
+        }
+
+        .values-card:hover {
+            transform: translateX(10px);
+            box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .values-card:hover::before {
+            height: 100%;
+        }
+
+        .values-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-red);
+            color: var(--white);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%);
+        }
+
+        .values-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .values-description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Mission & Vision */
+        .mission-vision-section {
+            padding: 6rem 0;
+            background: var(--primary-blue);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-vision-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 184, 28, 0.05);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .mission-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border-left: 5px solid var(--gold);
+            position: relative;
+        }
+
+        .mission-icon {
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .mission-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .service-tab {
+            background: var(--white);
+            border: 3px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .service-tab:hover,
+        .service-tab.active {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-red) 0%, var(--gold) 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon-large {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(27, 58, 95, 0.95) 0%, rgba(196, 30, 58, 0.95) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-label {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-category {
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gallery-navigation {
+            margin-top: 3rem;
+        }
+
+        .gallery-hidden {
+            display: none !important;
+        }
+
+        #prevBtn:disabled,
+        #nextBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 0;
+            background: var(--dark-blue);
+            color: var(--white);
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+        }
+
+        .contact-info-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 184, 28, 0.3);
+            position: relative;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon-box {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+
+        .contact-details h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .contact-details p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .contact-details a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--gold);
+        }
+
+        .map-container {
+            height: 450px;
+            border: 5px solid var(--primary-red);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000000;
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-red);
+            color: var(--white);
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--dark-blue);
+            transform: translateY(-5px);
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .navbar-nav .nav-link {
+                margin: 0.5rem 0;
+            }
+
+            .services-tabs {
+                flex-direction: column;
+            }
+
+            .service-tab {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-slide {
+            animation: slideInLeft 0.8s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="./img/logo.png" class="navbar-logo"> CONQUISTA <span>GC</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-geometric"></div>
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="animate-slide">
+                        <div class="hero-badge">COLORADO'S TRUSTED CONTRACTOR</div>
+                        <h1 class="hero-title">
+                            BUILD YOUR<br><span>CONQUEST</span> WITH US
+                        </h1>
+                        <p class="hero-subtitle">"Where every project is a conquest."</p>
+                        <p class="hero-description">
+                            At Conquista General Contractor LLC, every project is an opportunity to build
+                            something meaningful. With expertise in residential and commercial construction,
+                            we turn visions into lasting results through quality, integrity, and excellence.
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#contact" class="btn btn-primary-custom">
+                                <i class="fas fa-phone-alt me-2"></i>GET FREE ESTIMATE
+                            </a>
+                            <a href="#services" class="btn btn-primary-custom"
+                                style="background: var(--gold); color: var(--dark-blue);">
+                                <i class="fas fa-tools me-2"></i>OUR SERVICES
+                            </a>
+                        </div>
+                        <div class="hero-features">
+                            <div class="hero-feature-item">
+                                <div class="hero-feature-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <div class="hero-feature-text">
+                                    <div class="hero-feature-number">5+</div>
+                                    <div class="hero-feature-label">Years Experience</div>
+                                </div>
+                            </div>
+                            <div class="hero-feature-item">
+                                <div class="hero-feature-icon">
+                                    <i class="fas fa-hard-hat"></i>
+                                </div>
+                                <div class="hero-feature-text">
+                                    <div class="hero-feature-number">100%</div>
+                                    <div class="hero-feature-label">Quality Work</div>
+                                </div>
+                            </div>
+                            <div class="hero-feature-item">
+                                <div class="hero-feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="hero-feature-text">
+                                    <div class="hero-feature-number">24/7</div>
+                                    <div class="hero-feature-label">Support</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-badge">WHO WE ARE</div>
+                <h2 class="section-title">Conquista General Contractor LLC</h2>
+                <p class="section-subtitle">Your Trusted Partner in Construction Excellence</p>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                        Conquista General Contractor LLC is a trusted company based in Aurora, Colorado,
+                        specializing in construction, remodeling, painting, and general maintenance. We are
+                        a team of dedicated professionals passionate about creating functional, beautiful,
+                        and safe spaces for our clients.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                        Our name, <strong style="color: var(--primary-red);">Conquista</strong>, represents
+                        our philosophy — to face every challenge with determination and achieve success through
+                        hard work and precision. Every project reflects our values of honesty, craftsmanship,
+                        and reliability.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Construction Team"
+                        style="width: 100%; height: 400px; object-fit: cover; box-shadow: 20px 20px 0 var(--primary-red);">
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="values-card">
+                        <div class="values-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="values-title">Quality</h3>
+                        <p class="values-description">
+                            Excellence in every project we complete. We never compromise on quality or craftsmanship.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="values-card">
+                        <div class="values-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="values-title">Experience</h3>
+                        <p class="values-description">
+                            More than 5 years in the industry, delivering successful projects across Colorado.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="values-card">
+                        <div class="values-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="values-title">Professionalism</h3>
+                        <p class="values-description">
+                            Professional team at your service, committed to exceeding your expectations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="mission-box">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="mission-title">Our Mission</h3>
+                        <p class="mission-text">
+                            Our mission is to provide top-quality construction and remodeling services that
+                            exceed expectations, delivering each project with professionalism, efficiency, and
+                            heart. We aim to transform every space we touch into a symbol of trust and excellence.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mission-box">
+                        <div class="mission-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="mission-title">Our Vision</h3>
+                        <p class="mission-text">
+                            To be recognized as a leading construction company in the region, known for our
+                            integrity, innovation, and commitment to client satisfaction. We envision growth
+                            built on reputation, teamwork, and our clients' continued trust.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <div
+                    style="background: rgba(255, 255, 255, 0.1); padding: 2rem; backdrop-filter: blur(10px); border: 2px solid var(--gold);">
+                    <h3 style="color: var(--gold); font-size: 2rem; margin-bottom: 1rem;">
+                        <i class="fas fa-shield-alt me-2"></i>OUR COMMITMENT TO SAFETY
+                    </h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin: 0;">
+                        At Conquista General Contractor LLC, safety is our top priority. We protect our team,
+                        clients, and worksites by maintaining the highest standards of responsibility and care.
+                        Every project is handled with professionalism, respect, and full commitment to quality and
+                        trust.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-badge">WHAT WE DO</div>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive Construction & Remodeling Solutions</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Painting Services -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon-large">
+                            <i class="fas fa-paint-roller"></i>
+                        </div>
+                        <h3 class="service-title">Painting</h3>
+                        <ul class="service-list">
+                            <li>Interior & Exterior Painting</li>
+                            <li>Drywall Repair & Finishing</li>
+                            <li>Staining & Varnishing</li>
+                            <li>Pressure Washing</li>
+                            <li>Color Consultation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Remodeling Services -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon-large">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="service-title">Remodeling</h3>
+                        <ul class="service-list">
+                            <li>Kitchen & Bathroom Remodeling</li>
+                            <li>Flooring Installation</li>
+                            <li>Cabinet Replacement</li>
+                            <li>Tile & Backsplash</li>
+                            <li>Framing & Trim Carpentry</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Maintenance Services -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon-large">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="service-title">Maintenance</h3>
+                        <ul class="service-list">
+                            <li>General Property Repairs</li>
+                            <li>Electrical & Plumbing</li>
+                            <li>Fence & Deck Repair</li>
+                            <li>Power Washing</li>
+                            <li>Move-In/Move-Out Service</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Construction Services -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon-large">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3 class="service-title">Construction</h3>
+                        <ul class="service-list">
+                            <li>Small Additions</li>
+                            <li>Door & Window Replacement</li>
+                            <li>Wall Restoration</li>
+                            <li>Exterior Improvements</li>
+                            <li>Preventive Maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-badge">OUR WORK</div>
+                <h2 class="section-title">Before & After</h2>
+                <p class="section-subtitle">See Our Transformations</p>
+            </div>
+
+            <div class="gallery-grid" id="galleryContainer">
+                <!-- Página 1 (1-12) -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Interior Painting">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Interior Painting</div>
+                        <div class="gallery-category">Painting</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Kitchen Remodel">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Kitchen Remodel</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Exterior Paint">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Exterior Paint</div>
+                        <div class="gallery-category">Painting</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Bathroom Update">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Bathroom Update</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Construction Work">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Construction Work</div>
+                        <div class="gallery-category">Construction</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Cabinet Install">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Cabinet Install</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Wall Painting">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Wall Painting</div>
+                        <div class="gallery-category">Painting</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Tile Work">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Tile Work</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Living Room">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Living Room</div>
+                        <div class="gallery-category">Painting</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Team Work">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Team Work</div>
+                        <div class="gallery-category">Construction</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Floor Install">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Floor Install</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Maintenance">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Maintenance</div>
+                        <div class="gallery-category">Maintenance</div>
+                    </div>
+                </div>
+
+                <!-- Página 2 (13-24) - OCULTOS -->
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 13">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Modern Kitchen</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 14">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Paint Finish</div>
+                        <div class="gallery-category">Painting</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 15">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Bathroom Design</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 16">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Construction Site</div>
+                        <div class="gallery-category">Construction</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 17">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Interior Work</div>
+                        <div class="gallery-category">Painting</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 18">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Cabinet Upgrade</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1600585152915-d208bec867e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 19">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Home Renovation</div>
+                        <div class="gallery-category">Construction</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 20">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Modern Bath</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1615874694520-474822394e73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 21">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Wall Treatment</div>
+                        <div class="gallery-category">Painting</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 22">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Kitchen Design</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 23">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Cabinet Finish</div>
+                        <div class="gallery-category">Remodeling</div>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-hidden">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Project 24">
+                    <div class="gallery-overlay">
+                        <div class="gallery-label">Repair Work</div>
+                        <div class="gallery-category">Maintenance</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="gallery-navigation text-center">
+                <button class="btn btn-primary-custom me-3" id="prevBtn">
+                    <i class="fas fa-arrow-left me-2"></i>PREVIOUS
+                </button>
+                <span id="pageInfo"
+                    style="font-size: 1.3rem; color: var(--primary-blue); font-weight: 700; margin: 0 2rem;">
+                    PAGE <span id="currentPage">1</span> OF <span id="totalPages">2</span>
+                </span>
+                <button class="btn btn-primary-custom ms-3" id="nextBtn">
+                    NEXT<i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-badge" style="background: var(--gold); color: var(--dark-blue);">CONTACT US</div>
+                <h2 class="section-title" style="color: var(--white);">Get In Touch</h2>
+                <p class="section-subtitle" style="color: var(--gold);">Let's Start Your Next Project</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <div class="contact-item">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Owners</h4>
+                                <p>Yusmary Colmenares &<br>Gregorio Pérez</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>
+                                    <a href="tel:720-288-4030">720-288-4030</a><br>
+                                    <a href="tel:720-993-3256">720-993-3256</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p><a
+                                        href="mailto:conquistageneralcontractor@gmail.com">conquistageneralcontractor@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Address</h4>
+                                <p>707 Dillon Way<br>Aurora, CO 80011</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.5234!2d-104.8234!3d39.7294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s707%20Dillon%20Way%2C%20Aurora%2C%20CO%2080011!5e0!3m2!1sen!2sus!4v1234567890"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <a href="https://www.google.com/maps/dir//707+Dillon+Way,+Aurora,+CO+80011" target="_blank"
+                            class="btn btn-primary-custom" style="background: var(--gold); color: var(--dark-blue);">
+                            <i class="fas fa-directions me-2"></i>GET DIRECTIONS
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">CONQUISTA GC</div>
+                    <p class="footer-tagline">"Where every project is a conquest."</p>
+                    <p class="footer-description">
+                        Professional construction, remodeling, and maintenance services in Colorado.
+                        Building excellence through quality, integrity, and dedication.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#services">Painting Services</a></li>
+                        <li><a href="#services">Remodeling</a></li>
+                        <li><a href="#services">Maintenance</a></li>
+                        <li><a href="#services">Construction</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone me-2"></i> 720-288-4030</li>
+                        <li><i class="fas fa-phone me-2"></i> 720-993-3256</li>
+                        <li><i class="fas fa-envelope me-2"></i> conquistageneralcontractor@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 707 Dillon Way, Aurora, CO 80011</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Conquista General Contractor LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Gallery Pagination
+            const itemsPerPage = 12;
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const totalPages = Math.ceil(galleryItems.length / itemsPerPage);
+            let currentPage = 1;
+
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentPageSpan = document.getElementById('currentPage');
+            const totalPagesSpan = document.getElementById('totalPages');
+
+            totalPagesSpan.textContent = totalPages;
+
+            function showPage(page) {
+                galleryItems.forEach(item => {
+                    item.classList.add('gallery-hidden');
+                });
+
+                const startIndex = (page - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                for (let i = startIndex; i < endIndex && i < galleryItems.length; i++) {
+                    galleryItems[i].classList.remove('gallery-hidden');
+                }
+
+                currentPageSpan.textContent = page;
+                prevBtn.disabled = (page === 1);
+                nextBtn.disabled = (page === totalPages);
+
+                document.getElementById('gallery').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            });
+
+            showPage(1);
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            navbarCollapse.classList.remove('show');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
