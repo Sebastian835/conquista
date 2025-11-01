@@ -1400,11 +1400,6 @@
                 currentPageSpan.textContent = page;
                 prevBtn.disabled = (page === 1);
                 nextBtn.disabled = (page === totalPages);
-
-                document.getElementById('gallery').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
             }
 
             prevBtn.addEventListener('click', () => {
